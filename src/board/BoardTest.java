@@ -58,13 +58,14 @@ public class BoardTest {
 	
 	@Test
 	public void cellGetterTest() {
-		assertEquals(fileTestBoard.getCell(1, 1).getCurrentState() == CellState.ALIVE);
-		assertEquals(fileTestBoard.getCell(0, 0).getCurrentState() == CellState.DEAD);
+		assertTrue(fileTestBoard.getCell(1, 1).getCurrentState() == CellState.ALIVE);
+		assertTrue(fileTestBoard.getCell(0, 0).getCurrentState() == CellState.DEAD);
 		assertNull(fileTestBoard.getCell(-2, -4));
+		assertNull(fileTestBoard.getCell(28, 45));
 	}
 	
 	@Test
-	public void saveBoardTest() {
+	public void saveBoardTest() throws FileNotFoundException {
 		fileTestBoard.saveAt("src/test/out1.txt");
 	}
 }

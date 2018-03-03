@@ -115,4 +115,55 @@ public class Board {
 		}
 		return boardString;
 	}
+	
+	/**
+	 * Method that returns the number of rows of the board.
+	 * 
+	 * @return	number of rows of the board.
+	 */
+	public int numberOfRows() {
+		return matrixOfCells.size();
+	}
+	
+	/**
+	 * Method that returns the number of columns of the board.
+	 * 
+	 * @return	number of rows of the board.
+	 */
+	public int numberOfColumns() {
+		return matrixOfCells.get(0).size();
+	}
+	
+	/**
+	 * Method that returns a certain cell specified by a position.
+	 * 
+	 * @param numberOfRow	row position from 0 to rows size - 1.
+	 * @param numberOfColumn	column position form 0 to column size -1.
+	 * @return 				Specified cell and null if position is not valid.
+	 */
+	public Cell getCell(int numberOfRow, int numberOfColumn) {
+		if (numberOfRow < 0 || numberOfRow >= this.numberOfRows()) {
+			return null;
+		}
+		if (numberOfColumn < 0 || numberOfColumn >= this.numberOfColumns()) {
+			return null;
+		}
+		return matrixOfCells.get(numberOfRow).get(numberOfColumn);
+	}
+	
+	/**
+	 * Method that save current board into the specified file.
+	 * It used the file configuration of the board.
+	 * 
+	 * @param outFilePath	file path where the board is going to be stored.
+	 * 
+	 * @throws FileNotFoundException If can't open the file.
+	 */
+	public void saveAt(String outFilePath) throws FileNotFoundException {
+		PrintWriter outWriter = new PrintWriter(outFilePath);
+		outWriter.println(this.numberOfRows());
+		outWriter.println(this.numberOfColumns());
+		outWriter.print(this.toString());
+		outWriter.close();
+	}
 }
