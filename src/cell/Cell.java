@@ -68,6 +68,6 @@ public class Cell {
 	 * @return "O" if cell is alive and "*" otherwise.
 	 */
 	public String toString() {
-		return (currentState == CellState.ALIVE)? "O" : "*";
+		return currentState.toString();
 	}
 }

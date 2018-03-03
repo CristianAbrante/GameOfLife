@@ -25,11 +25,15 @@ public class cellTest {
 	
 	@Test
 	public void cellStateTest() {
-		assertTrue(CellState.ALIVE.toString().equals("alive"));
+		assertTrue(CellState.ALIVE.toString().equals("O"));
 		assertTrue(CellState.ALIVE.toBool());
+		assertTrue(CellState.of("O") == CellState.ALIVE);
 		
-		assertTrue(CellState.DEAD.toString().equals("dead"));
+		assertTrue(CellState.DEAD.toString().equals("*"));
 		assertFalse(CellState.DEAD.toBool());
+		assertTrue(CellState.of("*") == CellState.DEAD);
+		
+		assertNull(CellState.of("fail"));
 	}
 	
 	@Test

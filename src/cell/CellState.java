@@ -21,7 +21,7 @@ public enum CellState {
 	 * 			as a string.
 	 */
 	public String toString() {
-		return (this == ALIVE)? "alive" : "dead";
+		return (this == ALIVE)? "O" : "*";
 	}
 	
 	/**
@@ -33,5 +33,21 @@ public enum CellState {
 	 */
 	public boolean toBool() {
 		return (this == ALIVE)? true : false;
+	}
+	
+	/**
+	 * static methods that returns the cell state given a representation string.
+	 * 
+	 * @param 	cellStateString could be "O" if cell is alive and "*" otherwise.
+	 * @return					ALIVE if string was "O", DEAD if it was "*" and
+	 * 							null otherwise.
+	 */
+	public static CellState of(String cellStateString) {
+		for (CellState state : CellState.values()) {
+			if (cellStateString.equals(state.toString())) {
+				return state;
+			}
+		}
+		return null;
 	}
 }
