@@ -55,4 +55,12 @@ public class cellTest {
 		assertTrue(aliveTestCell.toString() == "O");
 		assertTrue(deadTestCell.toString() == "*");
 	}
+	
+	@Test
+	public void updateStateTest() {
+		Board testBoard = new Board("src/test/board1.txt");
+		aliveTestCell.updateState(testBoard, 1, 1);
+		assertTrue(aliveTestCell.getCurrentState() == CellState.DEAD);
+		assertTrue(aliveTestCell.getPreviousState() == CellState.DEAD);
+	}
 }
