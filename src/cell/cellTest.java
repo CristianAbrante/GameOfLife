@@ -2,21 +2,25 @@ package cell;
 
 import static org.junit.Assert.*;
 
-import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class cellTest {
-
+	
+	Cell emptyTestCell;
+	Cell aliveTestCell;
+	Cell deadTestCell;
+	
 	@Before
 	public void setUp() throws Exception {
 		// Creation of an empty cell.
-		Cell emptyTestCell = new Cell();
+		emptyTestCell = new Cell();
 
 		// Creation of an alive cell.
-		Cell aliveTestCell = new Cell(ALIVE);
+		aliveTestCell = new Cell(CellState.ALIVE);
 		
 		// Creation of a dead cell.
-		Cell deadTestCell = new Cell(DEAD);
+		deadTestCell = new Cell(CellState.DEAD);
 	}
 	
 	@Test
@@ -30,15 +34,15 @@ public class cellTest {
 	
 	@Test
 	public void currentStateTest() {
-		assertEqual(emptyTestCell.getCurrentState(), DEAD);
-		assertEqual(aliveTestCell.getCurrentState(), ALIVE);
-		assertEqual(deadTestCell.getCurrentState(), DEAD);
+		assertTrue(emptyTestCell.getCurrentState() == CellState.DEAD);
+		assertTrue(aliveTestCell.getCurrentState() == CellState.ALIVE);
+		assertTrue(deadTestCell.getCurrentState() == CellState.DEAD);
 	}
 	
 	@Test
 	public void previousStateTest() {
-		assertEqual(emptyTestCell.getPreviousState(), DEAD);
-		assertEqual(aliveTestCell.getPreviousState(), DEAD);
-		assertEqual(deadTestCell.getPreviousState(), DEAD);
+		assertTrue(emptyTestCell.getPreviousState() == CellState.DEAD);
+		assertTrue(aliveTestCell.getPreviousState() == CellState.DEAD);
+		assertTrue(deadTestCell.getPreviousState() == CellState.DEAD);
 	}
 }
