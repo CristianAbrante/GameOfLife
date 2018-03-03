@@ -8,8 +8,6 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.oracle.deploy.update.UpdateCheck;
-
 import cell.CellState;
 
 public class BoardTest {
@@ -80,8 +78,38 @@ public class BoardTest {
 								"*******\n" + 
 								"***O*O*\n" + 
 								"****OO*\n" + 
-								"*******";
+								"*******\n";
 		testBoard2.updateBoard();
 		assertTrue(expectedBoard.equals(testBoard2.toString()));
+		
+		expectedBoard = 	"*******\n" + 
+					   	"*OO****\n" + 
+						"*O*****\n" + 
+						"**O*O**\n" + 
+						"*****O*\n" + 
+						"****OO*\n" + 
+						"*******\n";
+		testBoard2.updateBoard();
+		assertTrue(expectedBoard.equals(testBoard2.toString()));
+		
+		Board testBoard3 = new Board("src/test/board3.txt");
+		String expectedBoard2 =	"****O*****O****\n" + 
+								"****O*****O****\n" + 
+								"****OO***OO****\n" + 
+								"***************\n" + 
+								"OOO**OO*OO**OOO\n" + 
+								"**O*O*O*O*O*O**\n" + 
+								"****OO***OO****\n" + 
+								"***************\n" + 
+								"****OO***OO****\n" + 
+								"**O*O*O*O*O*O**\n" + 
+								"OOO**OO*OO**OOO\n" + 
+								"***************\n" + 
+								"****OO***OO****\n" + 
+								"****O*****O****\n" + 
+								"****O*****O****\n";
+		testBoard3.updateBoard();
+		System.out.println(testBoard3);
+		assertTrue(expectedBoard2.equals(testBoard3.toString()));
 	}
 }

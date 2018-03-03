@@ -166,4 +166,43 @@ public class Board {
 		outWriter.print(this.toString());
 		outWriter.close();
 	}
+	
+	/**
+	 * Method that updates all cell states by apliying the rules of surveillance.
+	 * Each rule is specified in the cell configuration.
+	 */
+	public void updateBoard() {
+		for (int row = 0; row < this.numberOfRows(); row++)
+			for (int col = 0; col < this.numberOfColumns(); col++)
+				this.getCell(row, col).updateState(countNumberOfALiveNeighbours(row, col));
+	}
+	
+	/**
+	 * Private methods that counts the number of alive neighbours of a certain cell.
+	 * 
+	 * @param rowPos	 	row position of the cell we want to calculate the neighbours.
+	 * @param colPos		column position of the cell we want to calculate the neighbours.
+	 * @return			number of alive neighbours of the given cell in this turn.
+	 */
+	private int countNumberOfALiveNeighbours(int rowPos, int colPos) {
+		final int PROXIMITY = 1;
+		int numberOfALiveNeighbours = 0;
+		
+		for (int row = rowPos - PROXIMITY; row <= rowPos + PROXIMITY; row++) {
+			for (int col = colPos - PROXIMITY; col <= colPos + PROXIMITY; col++) {
+				Cell cellAtPos = this.getCell(row, col);
+				if (cellAtPos != null && !(row == rowPos && col == colPos)) {
+					if (row == rowPos - PROXIMITY || (row == rowPos && col == colPos - PROXIMITY)) {
+						if (cellAtPos.getPreviousState() == CellState.ALIVE)
+							numberOfALiveNeighbours++;
+					}
+					if (row == rowPos + PROXIMITY || (row == rowPos && col == colPos + PROXIMITY)) {
+						if (cellAtPos.getCurrentState() == CellState.ALIVE)
+							numberOfALiveNeighbours++;
+					}
+				}
+			}
+		}
+		return numberOfALiveNeighbours;
+	}
 }
