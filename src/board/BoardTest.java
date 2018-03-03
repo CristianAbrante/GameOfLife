@@ -8,6 +8,8 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.oracle.deploy.update.UpdateCheck;
+
 import cell.CellState;
 
 public class BoardTest {
@@ -67,5 +69,19 @@ public class BoardTest {
 	@Test
 	public void saveBoardTest() throws FileNotFoundException {
 		fileTestBoard.saveAt("src/test/out1.txt");
+	}
+	
+	@Test
+	public void updateBoardTest() throws NumberFormatException, IllegalArgumentException, IOException {
+		Board testBoard2 = new Board("src/test/board2.txt");
+		String expectedBoard = 	"*******\n" + 
+							   	"*OO****\n" + 
+								"*O*O***\n" + 
+								"*******\n" + 
+								"***O*O*\n" + 
+								"****OO*\n" + 
+								"*******";
+		testBoard2.updateBoard();
+		assertTrue(expectedBoard.equals(testBoard2.toString()));
 	}
 }
