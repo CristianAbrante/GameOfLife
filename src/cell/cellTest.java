@@ -72,7 +72,7 @@ public class cellTest {
 		
 		aliveTestCell.updateState(1);
 		assertTrue(aliveTestCell.getCurrentState() == CellState.DEAD);
-		assertTrue(aliveTestCell.getPreviousState() == CellState.ALIVE);
+		assertTrue(aliveTestCell.getPreviousState() == CellState.DEAD);
 		
 		deadTestCell.updateState(3);
 		assertTrue(deadTestCell.getCurrentState() == CellState.ALIVE);
@@ -80,10 +80,10 @@ public class cellTest {
 		
 		deadTestCell.updateState(1);
 		assertTrue(deadTestCell.getCurrentState() == CellState.DEAD);
-		assertTrue(deadTestCell.getPreviousState() == CellState.DEAD);
+		assertTrue(deadTestCell.getPreviousState() == CellState.ALIVE);
 		
 		deadTestCell.updateState(7);
 		assertTrue(deadTestCell.getCurrentState() == CellState.DEAD);
-		assertTrue(deadTestCell.getPreviousState() == CellState.ADEAD);
+		assertTrue(deadTestCell.getPreviousState() == CellState.DEAD);
 	}
 }
