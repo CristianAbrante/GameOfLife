@@ -17,8 +17,8 @@ package cell;
  * @version 	1.0.0
  */
 public class Cell {
-	public CellState currentState; 	// Current state of the cell in this turn.
-	public CellState previousState; 	// Previous state of the cell in this turn.
+	private CellState currentState; 	// Current state of the cell in this turn.
+	private CellState previousState; 	// Previous state of the cell in this turn.
 	
 	/**
 	 * Default constructor of the cell class.

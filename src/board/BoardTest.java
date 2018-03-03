@@ -15,4 +15,10 @@ public class BoardTest {
 		emptyTestBoard = new Board();
 		fileTestBoard = new Board("src/test/board1.txt");
 	}
+	
+	@Test
+	public void toStringTest() {
+		String expectedString = "***\n*O*\n***";
+		assertTrue(expectedString == fileTestBoard.toString());
+	}
 }
