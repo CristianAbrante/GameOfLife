@@ -45,4 +45,10 @@ public class cellTest {
 		assertTrue(aliveTestCell.getPreviousState() == CellState.DEAD);
 		assertTrue(deadTestCell.getPreviousState() == CellState.DEAD);
 	}
+	
+	@Test
+	public void toStringTest() {
+		assertTrue(aliveTestCell.toString() == "O");
+		assertTrue(deadTestCell.toString() == "*");
+	}
 }
