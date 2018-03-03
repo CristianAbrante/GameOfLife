@@ -58,9 +58,32 @@ public class cellTest {
 	
 	@Test
 	public void updateStateTest() {
-		Board testBoard = new Board("src/test/board1.txt");
-		aliveTestCell.updateState(testBoard, 1, 1);
+		aliveTestCell.updateState(3);
+		assertTrue(aliveTestCell.getCurrentState() == CellState.ALIVE);
+		assertTrue(aliveTestCell.getPreviousState() == CellState.ALIVE);
+		
+		aliveTestCell.updateState(2);
+		assertTrue(aliveTestCell.getCurrentState() == CellState.ALIVE);
+		assertTrue(aliveTestCell.getPreviousState() == CellState.ALIVE);
+		
+		aliveTestCell.updateState(7);
 		assertTrue(aliveTestCell.getCurrentState() == CellState.DEAD);
-		assertTrue(aliveTestCell.getPreviousState() == CellState.DEAD);
+		assertTrue(aliveTestCell.getPreviousState() == CellState.ALIVE);
+		
+		aliveTestCell.updateState(1);
+		assertTrue(aliveTestCell.getCurrentState() == CellState.DEAD);
+		assertTrue(aliveTestCell.getPreviousState() == CellState.ALIVE);
+		
+		deadTestCell.updateState(3);
+		assertTrue(deadTestCell.getCurrentState() == CellState.ALIVE);
+		assertTrue(deadTestCell.getPreviousState() == CellState.DEAD);
+		
+		deadTestCell.updateState(1);
+		assertTrue(deadTestCell.getCurrentState() == CellState.DEAD);
+		assertTrue(deadTestCell.getPreviousState() == CellState.DEAD);
+		
+		deadTestCell.updateState(7);
+		assertTrue(deadTestCell.getCurrentState() == CellState.DEAD);
+		assertTrue(deadTestCell.getPreviousState() == CellState.ADEAD);
 	}
 }
