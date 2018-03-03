@@ -8,6 +8,8 @@ import java.io.IOException;
 import org.junit.Before;
 import org.junit.Test;
 
+import cell.CellState;
+
 public class BoardTest {
 	
 	Board emptyTestBoard;
@@ -52,5 +54,17 @@ public class BoardTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void errorRowsFileConfigTest() throws NumberFormatException, IOException {
 		new Board("src/test/fail4.txt");
+	}
+	
+	@Test
+	public void cellGetterTest() {
+		assertEquals(fileTestBoard.getCell(1, 1).getCurrentState() == CellState.ALIVE);
+		assertEquals(fileTestBoard.getCell(0, 0).getCurrentState() == CellState.DEAD);
+		assertNull(fileTestBoard.getCell(-2, -4));
+	}
+	
+	@Test
+	public void saveBoardTest() {
+		fileTestBoard.saveAt("src/test/out1.txt");
 	}
 }
