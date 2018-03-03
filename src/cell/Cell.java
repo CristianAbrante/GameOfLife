@@ -35,6 +35,7 @@ public class Cell {
 	 * state. Previous State is set to DEAD too.
 	 * 
 	 * @param state current state of the cell.
+	 * @see 		CellState
 	 */
 	public Cell(CellState state) {
 		currentState = state;
@@ -44,7 +45,8 @@ public class Cell {
 	/**
 	 * Method that returns the current state of the cell.
 	 * 
-	 * @return current state of the cell.
+	 * @return  current state of the cell.
+	 * @see 		CellState
 	 */
 	public CellState getCurrentState() {
 		return currentState;
@@ -54,8 +56,18 @@ public class Cell {
 	 * Method that return the previous state of the cell.
 	 * 
 	 * @return previous state of the cell.
+	 * @see 		CellState
 	 */
 	public CellState getPreviousState() {
 		return previousState;
+	}
+	
+	/**
+	 * Method used to convert cell into String.
+	 * 
+	 * @return "O" if cell is alive and "*" otherwise.
+	 */
+	public String toString() {
+		return (currentState == CellState.ALIVE)? "O" : "*";
 	}
 }
