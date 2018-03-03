@@ -18,7 +18,16 @@ public class cellTest {
 		// Creation of a dead cell.
 		Cell deadTestCell = new Cell(DEAD);
 	}
-
+	
+	@Test
+	public void cellStateTest() {
+		assertTrue(CellState.ALIVE.toString().equals("alive"));
+		assertTrue(CellState.ALIVE.toBool());
+		
+		assertTrue(CellState.DEAD.toString().equals("dead"));
+		assertFalse(CellState.DEAD.toBool());
+	}
+	
 	@Test
 	public void currentStateTest() {
 		assertEqual(emptyTestCell.getCurrentState(), DEAD);
