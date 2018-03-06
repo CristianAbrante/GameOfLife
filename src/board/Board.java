@@ -7,6 +7,9 @@ package board;
 import java.io.*;
 import java.util.ArrayList;
 import java.lang.IllegalArgumentException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 import cell.*;
 
@@ -113,6 +116,7 @@ public class Board {
 			}
 			boardString += '\n';
 		}
+		boardString += '\n';
 		return boardString;
 	}
 	
@@ -204,5 +208,15 @@ public class Board {
 			}
 		}
 		return numberOfALiveNeighbours;
+	}
+	
+	/**
+	 * Method that prints an iteration into a file, appending it at the end.
+	 * 
+	 * @param outFilePath	
+	 * @throws IOException
+	 */
+	public void printIteration(String outFilePath) throws IOException {
+		Files.write(Paths.get(outFilePath), this.toString().getBytes(), StandardOpenOption.APPEND);
 	}
 }
