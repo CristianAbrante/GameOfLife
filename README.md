@@ -1,9 +1,11 @@
-# Assignment structure
+# Game of Life
+Game of Life is a zero players game or cellullar automaton first developed by the english mathemathician John Conway in 1970.
 
-This directory is organised as follows:
+# Full Documentation
+If you want to read the full documentation in spanish check [report/guion.pdf](report/guion.pdf).
 
-      .
-      ├── bib          # Assignment bibliography
-      ├── report       # LaTeX template for the report
-      ├── slides       # LaTeX Beamer template for the slides
-      ├── src          # Source code
+## Authors
+
+* **Cristian Abrante Dorta** - [CristianAbrante](https://github.com/CristianAbrante)
+* **Juan Pablo Claros Romero** - [juampi97](https://github.com/juampi97)
+* **Alberto Jesús González Álvarez** - [AlberTJ97](https://github.com/AlberTJ97)
